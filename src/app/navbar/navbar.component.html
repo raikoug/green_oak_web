@@ -1,0 +1,81 @@
+<ng-container *ngIf="consenso" >
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" (click)="change_component('mainboard')">Green Oak</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" (click)="change_component('mazzo')">Mazzo</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Players
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <button class="btn btn-success mx-1" type="submit" (click)="SalvaPlayers()">Salva (Cookies)</button>
+          <button class="btn btn-warning mx-1" type="submit">Importa</button>
+          <button class="btn btn-danger mx-1" type="submit">Resetta</button>
+          <button class="btn btn-info mx-1" type="submit">Esporta</button>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+<ng-container *ngIf="actual_component == 'mainboard'">
+  <div class="container text-center">
+    <div class="row ">
+      <div class="col-12">
+        <h1>Tavolo di gioco</h1>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-10">BRISCOLA + CARTA</div>
+      <div class="col-2">Comandi</div>
+    </div>
+    <div class="row">
+      <div class="col-12">Lista players</div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="actual_component == 'mazzo'">
+MAZZO!
+</ng-container>
+
+</ng-container>
+
+<ng-container *ngIf="!consenso" >
+  <div class="container d-flex text-center align-content-center consenso h-100">
+    <div>
+      <h2 class="disclaimer">Disclaimer</h2>
+      <h4> Questo sito non salva nessun dato sul server. Nessuna tua informazione viene passata.<br>
+           Per funzionare ha solo bisogno di poter salvare 2 cookie nel browser<br>
+      </h4>
+      <ul>
+        <li>consenso: per sapere se hai dato il consenso</li>
+        <li>players: per salvare il gioco e poterlo ricaricare quando torni</li>
+      </ul>
+      <h4> Accettando permetterai al sito di salvare localmente questi 2 cookie, e di rinnovarne la scadenza ogni volta che torni. <br>
+          Se non accetti, il sito non funzionerà. <br>
+          <p class="alert">Se cancelli i cookie a fine navigazione, perderai il gioco salvato!!!</p>
+      </h4>
+      <h5>
+        Una volta iniziato a giocare, potrai salvare i dati in un file JSON, così da poter cancellare in tutta tranquillità <br>
+        tutti i cookies, e ricaricare il gioco quando vuoi.
+      </h5>
+      <button class="btn btn-secondary mx-1" type="submit" (click)="SetConsenso()">Accetto</button>
+      </div>
+  </div>
+</ng-container>
+

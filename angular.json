@@ -25,9 +25,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/MyBootstrap/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/MyBootstrap/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
