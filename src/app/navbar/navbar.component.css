@@ -1,36 +1,4 @@
 
-/* overwrite navbar class */
 .navbar {
-    background-color: rgb(20, 24, 27)!important;
-  }
-
-/* overwrite colclass with background red */
-div[class^="col-" ] {
-  background-color: rgb(76, 90, 103);
-  border-right: 1px dashed #000000;
-  border-left: 1px dashed #000000;
-  border-top: 1px dashed #000000;
-  border-bottom: 1px dashed #000000;
-}
-
-
-.consenso {
-  
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  color: rgb(104, 124, 141);
-}
-
-.disclaimer {
-  color: rgb(219, 119, 25);
-}
-
-.alert {
-  background-color: rgb(76, 90, 103);
-  border-right: 1px dashed #000000;
-  border-left: 1px dashed #000000;
-  border-top: 1px dashed #000000;
-  border-bottom: 1px dashed #000000;
-  color: rgb(255, 0, 0);
+  background-color: rgb(20, 24, 27)!important;
 }

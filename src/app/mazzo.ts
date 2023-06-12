@@ -30,4 +30,23 @@ export class Mazzo{
         }
 
     }
+
+    pesca(){
+        let index = Math.floor(Math.random() * this.cards.length);
+        let carta = this.cards[index];
+        this.cards.splice(index, 1);
+        return carta;
+    }
+
+    mescola(){
+        this.initialize();
+        let index = Math.floor(Math.random() * this.cards.length);
+        let carta = this.cards[index];
+        this.cards.splice(index, 1);
+        return carta;
+    }
+
+    carte_rimaste() : string{
+        return this.cards.length.toString();
+    }
 }

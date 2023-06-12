@@ -40,8 +40,43 @@
       </div>
     </div>
     <div class="row"> 
-      <div class="col-10">BRISCOLA + CARTA</div>
-      <div class="col-2">Comandi</div>
+      <div class="col-10">
+        <div class="container m-1">
+          <div class="row">
+            <div class="col-4">
+              <h3>Briscola</h3>
+              <img src={{briscola.path}} alt={{briscola.nome}} class="img-thumbnail">
+              <h4>{{briscola.nome}}</h4>
+              <p>Carte rimaste: {{mazzo.carte_rimaste()}}</p>
+            </div>
+            <div class="col-4">
+              <ng-container *ngIf="carta_pescata.valore">
+                <h3>Carta</h3>
+                <img src={{carta_pescata.path}} alt={{carta_pescata.nome}} class="img-thumbnail">
+                <h4>{{carta_pescata.nome}}</h4>
+              </ng-container>
+              <ng-container *ngIf="!carta_pescata.valore">
+                <h3>Pesca una carta</h3>
+              </ng-container>
+              </div>
+            <div class="col-4" id="effetti_board">
+              <div class="container">
+              <app-effetti [effetti]="effetti"></app-effetti>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+      <div class="col-2">
+        <div class="d-grid gap-2">
+          <a href="#" class="btn btn-secondary" (click)="mescola()">Pesca Briscola</a>
+          <a href="#" class="btn btn-secondary" (click)="mescola()">Mescola Mazzo</a>
+          <a href="#" class="btn btn-secondary" (click)="pesca()">Pesca</a>
+          <a href="#" class="btn btn-info">Crea Giocatore</a>
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-12">Lista players</div>
