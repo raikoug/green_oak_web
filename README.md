@@ -2,6 +2,13 @@
 
 TOTALMENTE NON PRONTO! XD
 
+## Dipendenze
+### ngx-cookie
+npm install ngx-cookie
+
+### bootstrap5
+Download Bootrstrap5 (https://getbootstrap.com/docs/5.0/getting-started/download/#compiled-css-and-js) and extract js/css folder inside:
+`node_modules/MyBootstrap/`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
