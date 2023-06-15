@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EffettiComponent } from './effetti/effetti.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EffettiComponent } from './effetti/effetti.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CookieModule.withOptions()
+    CookieModule.withOptions(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

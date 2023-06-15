@@ -4,6 +4,10 @@ export class Players {
     constructor(players: Player[]) {
         this.players = players;
     }
+
+    add_player(player: Player){
+        this.players.push(player);
+    }
 }
 
 export class Player {
@@ -18,24 +22,24 @@ export class Player {
     pettegolezzi: string[];
     cognome: string;
     soprannome: string;
-    ex: boolean;
+    ex: string;
     pensionato_in: string;
     hobby: string;
     circolo: string;
     id: number;
 
-    constructor(name: string, fastidio: number, scenata: boolean, spocchia: number, pettegolezzo: boolean, scenate_fatte: number, 
-                necrologio: boolean, parole_sagge: boolean, pettegolezzi: string[], cognome: string, soprannome: string, 
-                ex: boolean, pensionato_in: string, hobby: string, circolo: string, id: number) {
+    constructor(name: string, cognome: string, soprannome: string, ex: string, pensionato_in: string, hobby: string, circolo: string,
+                id: number, fastidio?: number, scenata?: boolean, spocchia?: number, pettegolezzo?: boolean, scenate_fatte?: number, 
+                necrologio?: boolean, parole_sagge?: boolean, pettegolezzi?: string[]) {
         this.name = name;
-        this.fastidio = fastidio;
-        this.scenata = scenata;
-        this.spocchia = spocchia;
-        this.pettegolezzo = pettegolezzo;
-        this.scenate_fatte = scenate_fatte;
-        this.necrologio = necrologio;
-        this.parole_sagge = parole_sagge;
-        this.pettegolezzi = pettegolezzi;
+        this.fastidio = fastidio || 0;
+        this.scenata = scenata || false;
+        this.spocchia = spocchia || 0;
+        this.pettegolezzo = pettegolezzo || false;
+        this.scenate_fatte = scenate_fatte || 0;
+        this.necrologio = necrologio || false;
+        this.parole_sagge = parole_sagge || false;
+        this.pettegolezzi = pettegolezzi || [];
         this.cognome = cognome;
         this.soprannome = soprannome;
         this.ex = ex;

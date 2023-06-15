@@ -74,7 +74,8 @@
           <a href="#" class="btn btn-secondary" (click)="mescola()">Pesca Briscola</a>
           <a href="#" class="btn btn-secondary" (click)="mescola()">Mescola Mazzo</a>
           <a href="#" class="btn btn-secondary" (click)="pesca()">Pesca</a>
-          <a href="#" class="btn btn-info">Crea Giocatore</a>
+          <a href="#" class="btn btn-info" (click)="crea_piggi()" 
+             data-bs-toggle="modal" data-bs-target="#creaPGmodal">Crea Giocatore</a>
         </div>
       </div>
     </div>
@@ -114,3 +115,67 @@ MAZZO!
   </div>
 </ng-container>
 
+<!-- Modal -->
+<div class="modal fade" id="creaPGmodal" tabindex="-1" aria-labelledby="creaPGmodalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="creaPGmodalLabel">Crea Personaggio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="nome">Nome Personaggio</span>
+          <input type="text" class="form-control" placeholder="nome" aria-label="Username" 
+                 aria-describedby="nome" [(ngModel)]="crea_pg_nome" 
+                 [ngClass]="{'is-valid' : crea_pg_nome, 'is-invalid' : !crea_pg_nome}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="cognome">Cognome</span>
+          <input type="text" class="form-control" placeholder="cognome" aria-label="Cognome" 
+                 aria-describedby="cognome" [(ngModel)]="crea_pg_cognome" 
+                 [ngClass]="{'is-valid' : crea_pg_cognome, 'is-invalid' : !crea_pg_cognome}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="soprannome">Soprannome</span>
+          <input type="text" class="form-control" placeholder="soprannome" aria-label="Soprannome" 
+                 aria-describedby="soprannome" [(ngModel)]="crea_pg_soprannome" 
+                 [ngClass]="{'is-valid' : crea_pg_soprannome, 'is-invalid' : !crea_pg_soprannome}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="soprannome">Ex</span>
+          <input type="text" class="form-control" placeholder="Ultimo lavoro" aria-label="Ex"
+                 aria-describedby="ex" [(ngModel)]="crea_pg_ex" 
+                 [ngClass]="{'is-valid' : crea_pg_ex, 'is-invalid' : !crea_pg_ex}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="pensionato">In pensione</span>
+          <input type="text" class="form-control" placeholder="XX In pensione" aria-label="pensionato" 
+                 aria-describedby="pensionato" [(ngModel)]="crea_pg_pensionato" 
+                 [ngClass]="{'is-valid' : crea_pg_pensionato, 'is-invalid' : !crea_pg_pensionato}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="hobby">hobby</span>
+          <input type="text" class="form-control" placeholder="Hobby" aria-label="Hobby" 
+                 aria-describedby="hobby" [(ngModel)]="crea_pg_hobby" 
+                 [ngClass]="{'is-valid' : crea_pg_hobby, 'is-invalid' : !crea_pg_hobby}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="circolo">circolo</span>
+          <input type="text" class="form-control" placeholder="Circolo" aria-label="Circolo" 
+                 aria-describedby="circolo" [(ngModel)]="crea_pg_circolo" 
+                 [ngClass]="{'is-valid' : crea_pg_circolo, 'is-invalid' : !crea_pg_circolo}">
+        </div>
+        <button type="button" class="btn btn-primary"  
+                data-bs-dismiss="modal" (click)="player_form_crea()"
+                [disabled]="crea_pg_can_save()">
+                Salva</button>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>

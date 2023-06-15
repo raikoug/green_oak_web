@@ -46,6 +46,16 @@ export class NavbarComponent {
   briscola: Carta = {} as Carta;
   carta_pescata: Carta = {} as Carta;
   effetti : effetto[] = [];
+  crea_personaggio : boolean = false;
+
+  // ngmodel varaibles per creazione personaggio
+  crea_pg_nome : string = "";
+  crea_pg_cognome : string = "";
+  crea_pg_soprannome : string = "";
+  crea_pg_ex : string = "";
+  crea_pg_pensionato : string = "";
+  crea_pg_hobby : string = "";
+  crea_pg_circolo : string = "";
 
 
 
@@ -85,6 +95,37 @@ export class NavbarComponent {
 
   }
 
+  crea_piggi(){
+    this.crea_personaggio = true;
+  }
+
+  get_players_last_id(){
+    let last_id = 0;
+    for (let player of this.players.players){
+      if (player.id > last_id){
+        last_id = player.id;
+      }
+    }
+    return last_id;
+  }
+
+  player_form_crea(){
+    let id = this.get_players_last_id() + 1;
+    const player = new Player(this.crea_pg_nome, 
+                              this.crea_pg_cognome,
+                              this.crea_pg_soprannome,
+                              this.crea_pg_ex,
+                              this.crea_pg_pensionato,
+                              this.crea_pg_hobby,
+                              this.crea_pg_circolo,
+                              id = id);
+    this.players.add_player(player);
+
+    this.SalvaPlayers();
+    console.log(this.players.players);
+    
+  }
+
   pesca(player?: Player){
     const carta = this.mazzo.pesca();
     this.show_carta(carta);
@@ -101,6 +142,11 @@ export class NavbarComponent {
     else{
       this.effetti.push({"classe": "alert-warning", "messaggio": "Fallimento"});
     }
+    
+  }
+
+  crea_pg_can_save(){
+    return !(this.crea_pg_nome != "" && this.crea_pg_cognome != "" && this.crea_pg_soprannome != "" && this.crea_pg_ex != "" && this.crea_pg_pensionato != "" && this.crea_pg_hobby != "" && this.crea_pg_circolo != "");
     
   }
 
